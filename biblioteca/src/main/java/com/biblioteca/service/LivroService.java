@@ -14,6 +14,12 @@ public class LivroService {
     // implemente a lógica da sua parte do CRUD nessa class
 //Faz a comunicação entre o LivroRepository e o LivroController.
 //Ele organiza a lógica de salvar, buscar, atualizar e deletar livros, utilizando os métodos do LivroRepository.
+public void deletar(Long id) {
+    livroRepository.findById(id).map(livro -> {
+        livroRepository.delete(livro);
+        return null;
+    }).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+}
 
     public Livro atualizar(Long id, Livro livroAtualizado) {
         return livroRepository.findById(id).map(livro -> {
