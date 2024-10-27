@@ -23,10 +23,20 @@ public void deletar(Long id) {
 
     public Livro atualizar(Long id, Livro livroAtualizado) {
         return livroRepository.findById(id).map(livro -> {
-            livro.setTitulo(livroAtualizado.getTitulo());
+            livro.setNome(livroAtualizado.getTitulo());
             livro.setAutor(livroAtualizado.getAutor());
             livro.setAno(livroAtualizado.getAno());
             return livroRepository.save(livro);
         }).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
     }
+
+	public Object listarTodos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object listarTodosDescricao(String pesquisa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
